@@ -2,10 +2,23 @@
 
 namespace TODO
 {
+    class Engine
+    {
+        public static void ListTodo()
+        {
+
+        }
+        public static void AddTodo()
+        {
+
+        }
+    }
     class Program
     {
         static void Main(string[] args)
         {
+          
+
 
             bool willExit = false;
 
@@ -21,8 +34,10 @@ namespace TODO
                 switch (input.Key)
                 {
                     case ConsoleKey.D1:
+                        Engine.AddTodo();       
                         break;
                     case ConsoleKey.D2:
+                        Engine.ListTodo();
                         break;
                     case ConsoleKey.D3:
                         willExit = true;

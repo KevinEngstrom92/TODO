@@ -9,7 +9,15 @@ namespace TODO
         static int counter = 0;
         public static void ListTodo()
         {
-           
+            Console.Clear();
+            Console.WriteLine("Name:\t\tDueDate:\t\tCompleted:");
+
+            foreach (var task in taskList)
+            {
+                if (task == null) continue;
+                Console.WriteLine($"{task.Name}\t\t{task.DueDate}\t{task.IsCompleted}");
+            }
+            Console.ReadKey(true);
         }
         public static void AddTodo()
         {

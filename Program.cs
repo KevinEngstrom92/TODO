@@ -1,16 +1,28 @@
 ﻿using System;
 
+
 namespace TODO
 {
     class Engine
     {
+        static Task[] taskList = new Task[100];
+        static int counter = 0;
         public static void ListTodo()
         {
-
+           
         }
         public static void AddTodo()
         {
+            Console.Clear();
+            Console.WriteLine("Title: ");
+            string input = Console.ReadLine();
+            Console.WriteLine("Due Date: ");
+            DateTime dueDate = DateTime.Parse(Console.ReadLine());
+            
+            taskList[counter++] = new Task(input, dueDate);
 
+
+            
         }
     }
     class Program

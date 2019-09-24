@@ -5,19 +5,47 @@ namespace TODO
 {
     class Engine
     {
+        public static int id = 1;
         static Task[] taskList = new Task[100];
         static int counter = 0;
         public static void ListTodo()
         {
+            bool shouldRun = true;
+
+            while (shouldRun)
+            { 
             Console.Clear();
-            Console.WriteLine("Name:\t\tDueDate:\t\tCompleted:");
+            Console.WriteLine("ID:\tName:\t\tDueDate:\t\tCompleted:");
 
             foreach (var task in taskList)
             {
                 if (task == null) continue;
-                Console.WriteLine($"{task.Name}\t\t{task.DueDate}\t{task.IsCompleted}");
+                Console.WriteLine($"{task.InternalID}\t{task.Name}\t\t{task.DueDate}\t{task.IsCompleted}");
             }
-            Console.ReadKey(true);
+            Console.WriteLine();
+            Console.WriteLine("(M)ark as finished, (E)dit, e(X)it");
+
+            ConsoleKeyInfo input = Console.ReadKey();
+            switch (input.Key)
+            {
+                case ConsoleKey.M:
+                    Console.Clear();
+                    Console.Write("> ");
+                    int IdToMarkClear = int.Parse(Console.ReadLine());
+
+                    taskList[IdToMarkClear-1].Completed = DateTime.Now;
+
+
+                    break;
+                case ConsoleKey.E:
+
+                    break;
+
+                case ConsoleKey.X:
+                        shouldRun = false;
+                    break;
+                }
+            }
         }
         public static void AddTodo()
         {

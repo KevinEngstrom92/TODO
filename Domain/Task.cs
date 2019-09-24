@@ -5,9 +5,11 @@ namespace TODO
     class Task
     {
         
+
+        public int InternalID { get; set; }
         public string Name { get; private set; }
         public DateTime? DueDate { get; private set; }
-        public DateTime? Completed { get; private set; }
+        public DateTime? Completed { get; set; }
         public bool IsCompleted
         {
             get
@@ -22,6 +24,7 @@ namespace TODO
         {
             Name = name;
             DueDate = dueDate;
+           InternalID = Engine.id++;
         }
     }
 }
